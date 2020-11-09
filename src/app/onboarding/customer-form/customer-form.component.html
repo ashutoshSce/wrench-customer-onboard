@@ -2,7 +2,7 @@
   <ng-template matStepLabel>Customer Details</ng-template>
   <mat-form-field>
     <mat-label>Full name</mat-label>
-    <input matInput formControlName="fullName" placeholder="Ashutosh Kumar" required>
+    <input matInput formControlName="fullName" placeholder="John Doe" required>
     <app-shared-print-error [control]="formGroup.get('fullName')" attribute="full name"></app-shared-print-error>
   </mat-form-field>
   <br/>
@@ -20,7 +20,7 @@
   <br/>
   <mat-form-field>
     <mat-label>Card Holder Name</mat-label>
-    <input matInput formControlName="cardHolderName" placeholder="Ashutosh Kumar" required>
+    <input matInput formControlName="cardHolderName" placeholder="John Doe" required>
     <app-shared-print-error [control]="formGroup.get('cardHolderName')" attribute="card holder name"></app-shared-print-error>
   </mat-form-field>
   <br/>
