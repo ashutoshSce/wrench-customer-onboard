@@ -1,0 +1,22 @@
+<section class="onboarding-form">
+  <mat-horizontal-stepper linear="true" #stepper (selectionChange)="onSelectionChange($event)">
+    <mat-step [stepControl]="customerFormGroup" label="Customer details">
+      <app-onboarding-customer-form [formGroup]="customerFormGroup"></app-onboarding-customer-form>
+    </mat-step>
+    <mat-step [stepControl]="vehicleFormGroup" label="Vehicle details">
+      <app-onboarding-vehicle-form [formGroup]="vehicleFormGroup"></app-onboarding-vehicle-form>
+    </mat-step>
+    <mat-step label="Customer and Vehicle Summary">
+      <ng-template matStepLabel>Customer and Vehicle Summary</ng-template>
+      <div class="summary-form">
+        <app-shared-print-list header="Customer details" [items]="customerDetails"></app-shared-print-list>
+        <app-shared-print-list header="Credit Card details" [items]="cardDetails"></app-shared-print-list>
+        <app-shared-print-list header="Vehicle details" [items]="vehicleDetails"></app-shared-print-list>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</section>

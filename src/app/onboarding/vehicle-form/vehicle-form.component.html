@@ -1,0 +1,38 @@
+<form [formGroup]="formGroup" class="vehicle-form">
+  <ng-template matStepLabel>Vehicle Details</ng-template>
+  <mat-form-field>
+    <mat-label>Car Make</mat-label>
+    <input matInput formControlName="carMake" placeholder="Maruti Suzuki" required>
+    <app-shared-print-error [control]="formGroup.get('carMake')" attribute="car make"></app-shared-print-error>
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <mat-label>Car Model</mat-label>
+    <input matInput formControlName="carModel" placeholder="Ertiga" required>
+    <app-shared-print-error [control]="formGroup.get('carModel')" attribute="car model"></app-shared-print-error>
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <mat-label>Car Year</mat-label>
+    <input matInput [matDatepicker]="dp" formControlName="carYear" placeholder="2020" required>
+    <app-shared-print-error [control]="formGroup.get('carYear')" attribute="car year"></app-shared-print-error>
+    <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+    <mat-datepicker #dp
+                    startView="multi-year"
+                    (yearSelected)="chosenYearHandler($event, dp)"
+                    panelClass="year-picker">
+    </mat-datepicker>
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <mat-label>Car Mileage</mat-label>
+    <input matInput formControlName="carMileage" placeholder="42" required>
+    <span matSuffix>kmpl</span>
+    <app-shared-print-error [control]="formGroup.get('carMileage')" attribute="car mileage"></app-shared-print-error>
+  </mat-form-field>
+  <br/>
+  <div>
+    <button mat-button matStepperPrevious>Back</button>
+    <button mat-button matStepperNext>Next</button>
+  </div>
+</form>

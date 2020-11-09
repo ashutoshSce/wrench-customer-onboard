@@ -1,0 +1,16 @@
+.vehicle-form {
+  .mat-form-field {
+    margin-top: 16px;
+    width: 20rem !important;
+  }
+
+  .year-picker {
+    .mat-calendar-period-button {
+      pointer-events: none;
+    }
+
+    .mat-calendar-arrow {
+      display: none;
+    }
+  }
+}

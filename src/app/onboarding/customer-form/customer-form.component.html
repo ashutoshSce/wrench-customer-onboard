@@ -1,0 +1,48 @@
+<form [formGroup]="formGroup" class="customer-form">
+  <ng-template matStepLabel>Customer Details</ng-template>
+  <mat-form-field>
+    <mat-label>Full name</mat-label>
+    <input matInput formControlName="fullName" placeholder="Ashutosh Kumar" required>
+    <app-shared-print-error [control]="formGroup.get('fullName')" attribute="full name"></app-shared-print-error>
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <mat-label>Address</mat-label>
+    <input matInput formControlName="address" placeholder="#10/22 Cox Town, Bangalore, Karnataka" required>
+    <app-shared-print-error [control]="formGroup.get('address')" attribute="address"></app-shared-print-error>
+  </mat-form-field>
+  <div>Credit Card Details</div>
+  <mat-form-field>
+    <mat-label>Credit Card Number</mat-label>
+    <input matInput formControlName="cardNumber" placeholder="4242424242424242" required>
+    <app-shared-print-error [control]="formGroup.get('cardNumber')" attribute="card number"></app-shared-print-error>
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <mat-label>Card Holder Name</mat-label>
+    <input matInput formControlName="cardHolderName" placeholder="Ashutosh Kumar" required>
+    <app-shared-print-error [control]="formGroup.get('cardHolderName')" attribute="card holder name"></app-shared-print-error>
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <mat-label>Expiry Date</mat-label>
+    <input matInput [matDatepicker]="dp" formControlName="expiryDate" placeholder="11/2023" required>
+    <app-shared-print-error [control]="formGroup.get('expiryDate')" attribute="expiry date"></app-shared-print-error>
+    <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+    <mat-datepicker #dp
+                    startView="multi-year"
+                    (yearSelected)="chosenYearHandler($event)"
+                    (monthSelected)="chosenMonthHandler($event, dp)"
+                    panelClass="month-picker">
+    </mat-datepicker>
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <mat-label>cvv</mat-label>
+    <input matInput formControlName="cvv" placeholder="cvv" required>
+    <app-shared-print-error [control]="formGroup.get('cvv')" attribute="cvv"></app-shared-print-error>
+  </mat-form-field>
+  <div>
+    <button mat-button matStepperNext>Next</button>
+  </div>
+</form>

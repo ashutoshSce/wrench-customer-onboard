@@ -1,0 +1,5 @@
+<div class="text-red-600" *ngIf="control && control.errors && (control.dirty || control.touched)">
+  <div *ngIf="control.errors.required"><small>The {{ attribute }} is required</small></div>
+  <div *ngIf="control.errors.minlength"><small>The {{ attribute }} must be at least {{ control.errors.minlength.requiredLength }} characters</small></div>
+  <div *ngIf="control.errors.maxlength"><small>The {{ attribute }} must not be greater than {{ control.errors.maxlength.requiredLength }} characters</small></div>
+</div>
